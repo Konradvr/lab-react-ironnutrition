@@ -18,7 +18,7 @@ function AddFood(props) {
     const handleCalories = (event) => {setCalories(event.target.value)}
     const handleServings = (event) => {setServings(event.target.value)}
     
-    // handleSubmit -> onSubmit handles form submissions from the user
+    // TEMPORARY SUBMIT THE NEW FOOD TO THE FOODLIST (ONLY IN THE FRONTEND)
     const handleSubmit = (event) => {
       event.preventDefault();
     //   making a new object that hold the the added food 
@@ -28,7 +28,8 @@ function AddFood(props) {
         calories,
         servings
       }
-    //   adding the new food to the foodList 
+    // adding the new food to the foodList BUT ONLY TEMPORARY (only in the frontend) 
+    // REASON: we are not connected to any DB !! COMING SOON :P 
       addFood(newFood);
       setName("")
       setImage("")
@@ -37,6 +38,11 @@ function AddFood(props) {
     };
     return(
         <div>
+            {/* USING FORM to warp all INPUTS together */}
+            {/* HANDLEBAR'S CRASHCOURSE */}
+            {/* onClick={} -> onClick handles click events on JSX elements (namely on buttons) */}
+            {/* onChange={} -> onChange handles keyboard events (namely a user typing into an input or textarea) */}
+            {/* onSubmit={} -> onSubmit handles form submissions from the user */}
             <form className="addfood" onSubmit={handleSubmit}>
                 <label htmlFor="name">Name</label>
                 <Input name="name" value={name} type="text" id='name' onChange={handleName} /> 
